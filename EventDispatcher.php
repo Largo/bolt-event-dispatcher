@@ -193,6 +193,6 @@ class EventDispatcher implements EventDispatcherInterface
     private function sortListeners($eventName)
     {
         krsort($this->listeners[$eventName]);
-        $this->sorted[$eventName] = \call_user_func_array('array_merge', $this->listeners[$eventName]);
+        $this->sorted[$eventName] = \call_user_func_array('array_merge', array_values($this->listeners[$eventName]));
     }
 }
